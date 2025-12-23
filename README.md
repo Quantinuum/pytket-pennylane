@@ -28,7 +28,6 @@ and methods into the `pytket.extensions` namespace.
 
 ## How to use
 
-
 To use the integration once installed, initialise your pytket backend (in this example, an `AerBackend` which uses Qiskit Aer), and construct a PennyLane `PytketDevice` using this backend:
 
 ```python
@@ -89,7 +88,6 @@ dev = qml.device(
 )
 
 ```
-
 
 ## Bugs, support and feature requests
 

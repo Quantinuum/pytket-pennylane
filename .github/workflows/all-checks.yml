@@ -39,4 +39,3 @@ jobs:
     with:
       os: ${{ matrix.os }}
       pyver: ${{ matrix.pyver }}
-
