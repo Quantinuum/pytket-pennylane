@@ -1,7 +1,7 @@
 [project]
 name = "pytket-pennylane"
 dynamic = ["version"]
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<4.0"
 
 description = "Pytket extension and Pennylane plugin."
 license = { file = "LICENSE" }
@@ -14,7 +14,6 @@ maintainers = [
 ]
 classifiers = [
     "Environment :: Console",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -26,10 +25,13 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "pytket >= 2.0.1",
-    "pennylane >= 0.40.0",
-    "pytket-qiskit >= 0.62.0",
+    "pytket >= 2.11.0",
+    "pennylane >= 0.43.1",
+    "pytket-qiskit >= 0.75.0",
 ]
+
+[project.entry-points."pennylane.plugins"]
+"pytket.pytketdevice" = "pytket.extensions.pennylane:PytketDevice"
 
 [project.urls]
 documentation = "https://tket.quantinuum.com/extensions/pytket-pennylane/index.html"
@@ -40,7 +42,7 @@ tracker = "https://github.com/Quantinuum/pytket-pennylane/issues"
 find = {}
 
 [tool.setuptools.dynamic]
-version = {attr = "_metadata.__extension_version__"}
+version = {attr = "pytket.extensions.pennylane._metadata.__extension_version__"}
 
 [build-system]
 requires = ["setuptools"]

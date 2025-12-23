@@ -41,7 +41,10 @@ def my_quantum_function(x, y):  # type: ignore
 @pytest.mark.parametrize("test_backend", TEST_BACKENDS)
 def test_backends(test_backend: Backend) -> None:
     dev = qml.device(
-        "pytket.pytketdevice", wires=3, pytket_backend=test_backend, shots=100000
+        "pytket.pytketdevice",
+        wires=3,
+        pytket_backend=test_backend,
+        shots=100000,
     )
 
     assert str(dev.compilation_pass) == "<tket::SequencePass>"

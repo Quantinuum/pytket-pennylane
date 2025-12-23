@@ -3,10 +3,12 @@
 Changelog
 ~~~~~~~~~
 
-0.21.0 (unreleased)
+0.21.0rc0 (unreleased)
 -------------------
 
-* Update pytket minimium version requirement to 2.0.1.
+* Update pytket minimium version requirement to 2.11.0.
+* Updated pytket-qiskit version requirement to 0.75.0.
+* Updated pennylane version requirement to 0.43.1.
 
 0.20.0 (January 2025)
 ---------------------
