@@ -16,7 +16,7 @@ Some useful links:
 
 ## Getting started
 
-`pytket-pennylane` is compatible with Python versions 3.10 to 3.13 on Linux, MacOS
+`pytket-pennylane` is compatible with Python versions 3.11 to 3.13 on Linux, MacOS
 and Windows. To install, run:
 
 ```shell
