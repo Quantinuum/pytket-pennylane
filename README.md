@@ -3,24 +3,30 @@
 [![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#)
 [![Stack Exchange](https://img.shields.io/badge/StackExchange-%23ffffff.svg?style=for-the-badge&logo=StackExchange)](https://quantumcomputing.stackexchange.com/tags/pytket)
 
-[Pytket](https://tket.quantinuum.com/) extension and [PennyLane](https://github.com/PennyLaneAI/pennylane) plugin which allows pytket backends and compilation to be used as a PennyLane device.
+[Pytket](https://tket.quantinuum.com/api-docs/index.html) is a python module for interfacing
+with tket, a quantum computing toolkit and optimising compiler developed by Quantinuum.
 
-Pytket is a quantum SDK python package which provides state of the art compilation for quantum
-circuits and a unified interface for execution on a number of "backends" (devices and simulators).
-PennyLane is a package for differentiable programming of quantum computer, which also provides a way
-to execute circuits on a variety of "devices". This package allows users to easily leverage the 
-differentiablecircuits of PennyLane combined with the compilation available in Pytket.
+`pytket-pennylane` is an extension to `pytket` that allows `pytket` circuits to converted to pennylane.
 
-The package is available for python 3.10, 3.11 and 3.12, and can be installed by
-cloning and installing from source, or via pip:
+See the PennyLane [documentation](https://pennylane.readthedocs.io) to get an intro to PennyLane.
+
+Some useful links:
+
+- [API Documentation](https://tket.quantinuum.com/extensions/pytket-pennylane/)
+
+## Getting started
+
+`pytket-pennylane` is compatible with Python versions 3.11 to 3.13 on Linux, MacOS
+and Windows. To install, run:
 
 ```shell
 pip install pytket-pennylane
 ```
 
-API documentation is [here](https://tket.quantinuum.com/extensions/pytket-pennylane/api/).
+This will install `pytket` if it isn't already installed, and add new classes
+and methods into the `pytket.extensions` namespace.
 
-See the PennyLane [documentation](https://pennylane.readthedocs.io) and Pytket [documentation](https://tket.quantinuum.com/api-docs/) to get an intro to PennyLane and Pytket.
+## How to use
 
 To use the integration once installed, initialise your pytket backend (in this example, an `AerBackend` which uses Qiskit Aer), and construct a PennyLane `PytketDevice` using this backend:
 
@@ -82,3 +88,67 @@ dev = qml.device(
 )
 
 ```
+
+## Bugs, support and feature requests
+
+Please file bugs and feature requests on the Github
+[issue tracker](https://github.com/Quantinuum/pytket-pennylane/issues).
+
+## Development
+
+To install an extension in editable mode run:
+
+```shell
+pip install -e .
+```
+
+We have set up the repo to be used with uv. You can use also:
+
+```shell
+uv sync --python 3.12
+```
+
+to install the package. This will automatically pick up all requirements for the tests as well.
+
+## Contributing
+
+Pull requests are welcome. To make a PR, first fork the repo, make your proposed
+changes on the `main` branch, and open a PR from your fork. If it passes
+tests and is accepted after review, it will be merged in.
+
+### Code style
+
+#### Formatting
+
+All code should be formatted using
+[ruff](https://docs.astral.sh/ruff/formatter/), with default options. This is
+checked on the CI.
+
+#### Type annotation
+
+On the CI, [mypy](https://mypy.readthedocs.io/en/stable/) is used as a static
+type checker and all submissions must pass its checks. You should therefore run
+`mypy` locally on any changed files before submitting a PR. You can run them with:
+
+```shell
+uv run mypy --config-file=mypy.ini --no-incremental --explicit-package-bases pytket tests
+```
+
+#### Linting
+
+We use [ruff](https://github.com/astral-sh/ruff) on the CI to check compliance with a set of style requirements (listed in `ruff.toml`).
+You should run `ruff` over any changed files before submitting a PR, to catch any issues.
+
+An easy way to meet all formatting and linting requirements is to issue `pre-commit run --all-files`.
+
+### Tests
+
+To run the tests for a module:
+
+1. `cd` into that module's `tests` directory;
+2. ensure you have installed `pytest`, `hypothesis`, and any modules listed in
+   the `test-requirements.txt` file (all via `pip`);
+3. run `pytest`.
+
+When adding a new feature, please add a test for it. When fixing a bug, please
+add a test that demonstrates the fix.

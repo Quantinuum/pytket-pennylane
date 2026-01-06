@@ -19,5 +19,5 @@ and Windows. To install, run:
 .. toctree::
    :caption: Useful links
 
-   Issue tracker <https://github.com/CQCL/pytket-pennylane/issues>
+   Issue tracker <https://github.com/Quantinuum/pytket-pennylane/issues>
    PyPi <https://pypi.org/project/pytket-pennylane/>
