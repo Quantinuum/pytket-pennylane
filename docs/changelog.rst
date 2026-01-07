@@ -3,8 +3,8 @@
 Changelog
 ~~~~~~~~~
 
-0.21.0rc0 (unreleased)
--------------------
+0.21.0 (January 2026)
+---------------------
 
 * Update pytket minimium version requirement to 2.11.0.
 * Updated pytket-qiskit version requirement to 0.75.0.
