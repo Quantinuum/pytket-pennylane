@@ -13,9 +13,6 @@ on:
     types:
       - created
       - edited
-  schedule:
-    # 04:00 every Tuesday morning
-    - cron: "0 4 * * 2"
 
 jobs:
   static-checks:
